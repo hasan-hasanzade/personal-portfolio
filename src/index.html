@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  @@include('html/head.html',{ "title":"Glavnaya" })
+  <body  data-barba="wrapper">  
+   <div class="load-container">
+      <div class="loading-screen"></div>
+   </div>
+
+
+   <div class="wrapper opa">
+      
+
+      @@include('html/header.html',{})
+      <main  data-barba="container" data-barba-namespace="home" class="page">
+         <section  class="page__main-block main-block">
+            <!-- <div class="particles">
+               <canvas id="nokey" ></canvas>
+            </div> -->
+            <div class="circles">
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+           </div>
+            <div class="main-block__container">
+               <div class="main-block__body">
+
+                  <div class="main-block__content content ">
+                     <div class="main-block__group">
+                        <div class="content__hello animate-this">Hello World</div>
+                        <h1 class="content__dev">I'm <span class="content__white">Hasan Hasanzade</span>, <br> a passionate <br> Front-end Developer </h1>
+                        <div><a href="./portfolio.html" class="content__btn"><span class="ind">Check out my projects</span></a></div>
+                     </div>
+                  </div>
+                  <div class="main-block__social">
+                     <ul class="main-block__list">
+                        <li class="main-block__item">
+                           <a href="#" class="main-block__link">
+                              <i class="fa-brands fa-instagram fa-2xs"></i>
+                           </a>
+                        </li>
+                        <li class="main-block__item">
+                           <a href="#" class="main-block__link">
+                              <i class="fa-brands fa-facebook fa-2xs"></i>
+                           </a>
+                        </li>
+                        <li class="main-block__item">
+                           <a href="#" class="main-block__link">
+                              <i class="fa-brands fa-linkedin fa-2xs"></i>
+                           </a>
+                        </li>
+                        <li class="main-block__item">
+                           <a href="#" class="main-block__link">
+                              <i class="fa-brands fa-telegram fa-2xs"></i>
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+
+               </div>
+            </div>
+         </section>
+      </main>
+      
+
+      <div id="cursor"></div>
+      <div id="follower"></div>
+   </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://kit.fontawesome.com/2a95aa737c.js" crossorigin="anonymous"></script>
+    <script src="js/app.min.js"></script>
+  </body>
+</html>

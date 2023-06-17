@@ -1,0 +1,81 @@
+#cursor, #follower {
+   position: fixed;
+   border-radius: 100%;
+   transition: .5s cubic-bezier(.75,-1.27,.3,2.33) transform, .2s cubic-bezier(.75,-1.27,.3,2.33) opacity;
+   user-select: none;
+   pointer-events: none;
+   z-index: 99999;
+   @media (max-width: 1025px) {
+      display: none;
+   }
+}
+
+#cursor {
+   width: 8px;
+   height: 8px;
+   background-color: rgba(#ffffff, .5);
+   transform: scale(1);
+   &.active {
+      opacity: 0;
+      transform: scale(0);
+   }
+   @media (max-width: $tablet) {
+      display: none;
+   }
+}
+
+#follower {
+   width: 46px;
+   height: 46px;
+   border: 1px solid rgba(#ffffff, .2);
+   background-color: rgba(#ffffff, .027);
+   transform: translate(5px,5px);
+   &.active {
+      border: 1.2px solid rgba(#ffffff, .33);
+      transform: scale(1.3);
+   }
+   @media (max-width: 1025px) {
+      display: none;
+   }
+}
+
+* {
+   cursor: none;
+}
+
+#cursor.hidden,
+#follower.hidden {
+   transform: scale(.001);
+}
+
+canvas {
+   overflow-clip-margin: content-box;
+   overflow: clip;
+}
+
+// .opa {
+//    overflow: hidden;
+//    animation: scale 1.5s ease;
+// }
+
+// @keyframes scale{
+//    0%{
+//        transform: scale(.6);
+//    }
+//    100%{
+//        transform: scale(1);
+//    }
+// }
+
+._ibg {
+   position: relative;
+}
+
+._ibg img {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   object-fit: cover;
+}

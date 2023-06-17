@@ -1,0 +1,200 @@
+
+@use "sass:math";
+
+$fontFamily:'Public Sans', sans-serif;
+$fontSize: rem(21); // где 14(px) - размер шрифта по умолчанию из макета
+
+// Основные цвета
+$mainColor: #000; // Цвет шрифта по умолчанию
+$mainDarkColor: #141414;
+$mainOrange: hsla(36, 72%, 70%, 1);
+$primaryWhite: #fff;
+
+
+@import "./mixins.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap");
+
+
+// НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
+// Минимальная ширина страницы
+$minWidth: 320;
+// Ширина полотна (макета)
+$maxWidth: 1920;
+// Ширина ограничивающего контейнера (0 = нет ограничения)
+$maxWidthContainer: 1700;
+// Общий отступ у контейнера
+// (30 = по 15px слева и справа, 0 = нет отступа)
+$containerPadding: 30;
+
+// Тип адаптива:
+// 1 = отзывчивость (у контейнера нет брейкпоинтов),
+// 2 = по брейк-поинтам (контейнер меняет свою ширину по брейк-поинтам)
+$responsiveType: 1;
+
+// Ширина страбатывания первого брейкпоинта
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Брейк-поинты
+$pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$tablet: em(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: em(767.98); // Телефоны L
+$mobileSmall: em(479.98); // Телефоны S
+
+// Обнуление и общие параметры ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
+@import "./null.scss";
+
+body {
+	font-weight: 500;
+   background-color: #141516;
+	font-family: $fontFamily;
+	color: whitesmoke;
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+	}
+}
+
+
+// Оболочка ============================================================================================================================================================================================================================================================================================================================================================================================================================================
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+
+	> main {
+		flex: 1 1 auto;
+	}
+	> * {
+		min-width: 0;
+	}
+   
+}
+
+
+// Ограничивающий контейнер ======================================================================================================================================================================================================================
+
+/*
+(i) Стили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+@if ($responsiveType==1) {
+	// Отзывчивая
+	[class*="__container"] {
+		@if ($maxWidthContainer>0) {
+			max-width: rem($maxWidthContainer);
+			box-sizing: content-box;
+			margin: 0 auto;
+		}
+		@if ($containerPadding>0) {
+			padding: 0 rem(math.div($containerPadding, 2));
+		}
+	}
+} @else {
+	// По брейк-поинтам
+	[class*="__container"] {
+		margin: 0 auto;
+		@if ($maxWidthContainer>0) {
+			max-width: rem($maxWidthContainer);
+			box-sizing: content-box;
+		} @else {
+			@if ($containerPadding>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+		@media (max-width: $pc) {
+			max-width: rem(970);
+		}
+		@media (max-width: $tablet) {
+			max-width: rem(750);
+		}
+		@media (max-width: $mobile) {
+			max-width: none;
+			@if ($containerPadding>0 and $maxWidthContainer>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+	}
+}
+
+// Header
+@import "./null.scss";
+@import "./mixins.scss";
+@import "./header.scss";
+@import "./main.scss";
+@import "./main-block.scss";
+@import "./about.scss";
+@import "./portfolio.scss";
+@import "./contact.scss";
+@import "./skills.scss";
+@import "./footer.scss";
+
+.loading-screen {
+	position: relative;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
+	background-color: $mainOrange;
+	width: 0%;
+	height: 100%;
+}
+
+.load-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 120%;
+	height: 100vh;
+	overflow: hidden;
+	z-index: 10;
+	pointer-events: none;
+}
+
+::-webkit-scrollbar{
+	width: 4px;
+	color:$mainOrange;
+	transition: all .4s ease;
+}
+::-webkit-scrollbar-thumb {
+	background: $mainOrange; 
+	border-radius: 4px;
+	width: 4px;
+	transition: all .4s ease;
+ }
+ ::-webkit-scrollbar-track {
+	background: #101010; 
+	border-radius: 4px;
+	width: 4px;
+ }
+
+.page {
+	// .page_home
+	&_home {
+	}
+	// .page_inner
+	&_inner {
+		padding-top: rem(30);
+	}
+
+	// .page__header
+	&__header {
+		margin-bottom: rem(30);
+	}
+
+	// .page__main-block
+	&__main-block {
+	}
+	// .page__catalog-cards
+	&__catalog-cards {
+	}
+	// .page__articles-module
+	&__articles-module {
+	}
+	// .page__products-block
+	&__products-block {
+	}
+}
+

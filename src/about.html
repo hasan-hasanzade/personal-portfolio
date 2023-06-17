@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+   <title>Document</title>
+</head>
+<body data-barba="wrapper">
+   <div class="load-container">
+      <div class="loading-screen"></div>
+   </div>
+   <div class="wrapper">  
+     @@include('html/header.html',{})
+     <main class="page" data-barba="container" data-barba-namespace="about">
+      <section class="page__about about">
+         <div class="about__container">
+            <div class="about__heading">
+               <h1 class="about__title">About<span class="about__red">Me</span></h1>
+               <h3 class="about__subtitle">Get To Know <span class="about__red">me</span></h3>
+            </div>
+            <div class="about__body animate-this">
+               <div class="about__text text">
+                  <h3 class="text__title">I'm a dedicated <span class="about__red">Front-end developer</span></h3>
+                  <div class="text__desc">
+                     I am excited about creating stunning websites. 
+                     My expertise lies in translating designs into fully functional websites while utilizing my development skills to enhance and customize their features. 
+                     My goal is to craft visually appealing, user-friendly websites that provide a seamless browsing experience.
+                  </div>
+               </div>
+               <div class="about__image">
+                  <img width="650px" height="350px" src="https://miro.medium.com/v2/resize:fit:1400/0*3hfahkLMmErhX4ih" alt="">  
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="page__services services">
+         <div class="services__container">
+            <h2 class="services__title"><span class="about__red">My</span> Services</h2>
+            <div class="services__content">
+               <div class="services__card">
+                  <div class="services__img"><img src="./img/about/resp.png" alt=""></div>
+                  <div class="services__desc">
+                     <h5 class="services__heading">Fully Responsive</h5>
+                     <p class="services__parag">In responsive website development, code detects and responds to all types of devices.</p>
+                  </div>
+               </div>
+               <div class="services__card">
+                  <div class="services__img"><img class="_pad" src="./img/about/code.png" alt=""></div>
+                  <div class="services__desc">
+                     <h5 class="services__heading">Clean Code</h5>
+                     <p class="services__parag">Code is clean if it can be understood easily – by everyone on the team. Clean code can be read and enhanced by a developer other than its original author. With understandability comes readability, changeability, extensibility and maintainability.</p>
+                  </div>
+               </div>
+               <div class="services__card">
+                  <div class="services__img"><img src="./img/about/w3.png" alt=""></div>
+                  <div class="services__desc">
+                     <h5 class="services__heading">W3C Valid HTML5</h5>
+                     <p class="services__parag">W3C validation is the process of checking a website's code to determine if it follows the formatting standards.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      @@include('html/footer.html',{})
+      </main>
+      
+   </div>
+   
+   
+   
+   <div id="cursor"></div>
+   <div id="follower"></div>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script src="https://kit.fontawesome.com/2a95aa737c.js" crossorigin="anonymous"></script>
+   <script src="https://unpkg.com/@barba/core"></script>
+   
+   <script src="js/app.min.js"></script>
+</body>
+</html>
