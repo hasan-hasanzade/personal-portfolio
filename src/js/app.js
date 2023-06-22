@@ -78,28 +78,21 @@ body.addEventListener('mouseout', () => {
  })
 
 
-const closeBtn = document.querySelector('.close');
-const barBtn = document.querySelector('#bar');
-const navMenu = document.querySelector('#menu');
-const logoMenu = document.querySelector('.menu__logo');
+ const menuBar = document.querySelector('.bar');
+ const menuBody = document.querySelector('.menu__body');
+ const allSpan = document.querySelectorAll("#line");
+ const hBody = document.querySelector(".header__menu");
 
-barBtn.addEventListener('click', () => {
-    navMenu.classList.add('active');
-})
+ 
 
-closeBtn.addEventListener('click', () => {
-    navMenu.classList.remove('active');
-})
-logoMenu.addEventListener('click', () => {
-    navMenu.classList.remove('active');
-})
 
-const menuItem = document.querySelectorAll('.menu__link');
-menuItem.forEach(item => {
-    item.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+ menuBar.addEventListener('click', () => {
+    allSpan.forEach(item => {
+       item.classList.toggle('active')
     })
-})
+    menuBody.classList.toggle('active');
+    hBody.classList.toggle('active');
+ })
 
 
 
@@ -206,6 +199,15 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
 
+ const headerElement = document.querySelector('.header');
 
+ const headerObserver = new IntersectionObserver(function(entries) {
+     if(entries[0].isIntersecting) {
+         headerElement.classList.remove('_scroll');
+     } else {
+         headerElement.classList.add('_scroll');
+     }
+ });
+ headerObserver.observe(headerElement);
 
 

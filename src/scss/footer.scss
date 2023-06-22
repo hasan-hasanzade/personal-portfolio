@@ -3,6 +3,11 @@
     width: 100%;
     padding: 20px;
     color: whitesmoke;
+    &__social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     &__body {
       display: flex;
       align-items: center;
@@ -10,6 +15,19 @@
     }
     &__list {
       display: flex;
+      justify-content: center;
+      align-items: center;
       gap: 20px;
+    }
+    &__content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__copy {
+      margin-left: 30px;
+    }
+    &__logo img{
+      width: 30px;
     }
 }
